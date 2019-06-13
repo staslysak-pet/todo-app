@@ -1,0 +1,49 @@
+.notesCont.row
+    each item in note= notes.reverse()
+
+        if item.type === 'note'
+            .note.mini.col-sm-12.col-md-4.col-lg-3(data-type=item.type data-id=item['_id'] tabindex='0' data-created=item.created data-state='close')
+                .header(contenteditable='true' placeholder='Enter note header' data-role='header')= item.header
+                .noteText(contenteditable='true' placeholder='Add quick note...' data-role='text_note_body')= item.noteText
+
+                .created-time= `Created: ${item.created}`
+                .controls
+                    .toolbar
+                        .toolbarBtn.setTime.btn(aria-label='time')
+                        .toolbarBtn.delete.btn(aria-label='delete' data-role='DELETE_REQUEST')
+                    .defaultBtn.edit.btn.btn-primary(data-role='PUT_REQUEST') Edit
+
+
+        if item.type === 'list'
+            .note.mini.col-sm-12.col-md-4.col-lg-3(data-type=item.type data-id=item['_id'] tabindex='0' data-created=item.created data-state='close')
+                .header(contenteditable='true' placeholder='Enter note header' data-role='header')= item.header
+                .listCont
+
+                    each list in item.list.unchecked
+                        .listEl
+                            .checkEl(aria-checked='false')
+                            .textEl(contenteditable='true' role='textbox' aria-label='list_body')= list
+                            .delEl(data-role='delete')
+
+                    each list in item.list.checked
+                        .listEl
+                            .checkEl(aria-checked='true')
+                            .textEl(contenteditable='true' role='textbox' aria-label='list_body')= list
+                            .delEl(data-role='delete')
+
+                    .listEl(role='createListEl')
+                        .checkEl
+                        .textEl(contenteditable='true' placeholder='New TODO' aria-label='new_todo' data-role='create_todo')
+                        .delEl
+
+                .created-time= `Created: ${item.created}`
+                .controls
+                    .toolbar
+                        .toolbarBtn.setTime.btn(aria-label='time')
+                        .toolbarBtn.delete.btn(aria-label='delete' data-role='DELETE_REQUEST')
+                    .defaultBtn.edit.btn.btn-primary(data-role='PUT_REQUEST') Edit
+
+
+    else
+        .no-note
+            .phrase No notes

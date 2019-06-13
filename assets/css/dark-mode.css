@@ -1,0 +1,47 @@
+body,
+html,
+div,
+.note,
+#creater{
+    background: rgb(22, 22, 22);
+}
+.note,
+#creater{
+    box-shadow: 0 0 8px -2px #555
+}
+
+#creater:hover{
+    transform: scale(1.09)
+}
+
+.note:hover{
+    box-shadow: 0 0 8px -2px #ccc, 0 8px 8px -6px #aaa;
+}
+
+.add{
+    border:none;
+}
+.cancel:hover {
+    background: #222;
+    color: #777;
+}
+.cancel {
+    background: transparent;
+    color: #777;
+    border: none;
+}
+.toolbarBtn{
+    color: #777;
+}
+
+.listEl:hover {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+
+#switchMode{
+    box-shadow: 0 0 8px -2px #555, inset 0 0 2px #555;
+}
+#switchMode:hover{
+    box-shadow: 0 0 0 #555, inset 0 0 2px #555;
+}

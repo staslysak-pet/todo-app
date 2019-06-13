@@ -1,0 +1,36 @@
+html
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+        script(src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous')
+        link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+        link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous')
+        link(rel='stylesheet', href='css/main.css')
+        link(rel='stylesheet', href='css/dark-mode.css' id='dark_mode' disabled)
+        title= title
+        body
+            .container
+                #creator.note(tabindex='0')
+                    .createHeader.header( contenteditable='true' placeholder='Enter note header' data-role='header' tabindex='0')
+                    #createBtns
+                        .createTextNote.noteText(contenteditable='true' placeholder='Add quick note...' data-role='text_note_body')
+                        .createListNote(role='button' title='Create List' tabindex='0')
+                    #list.listCont()
+                        .listEl(role='createListEl')
+                            .checkEl
+                            .textEl(contenteditable='true' placeholder='New TODO' aria-label='new_todo' data-role='create_todo')
+                            .delEl
+
+                    #controls.controls()
+                        .toolbar
+                            .toolbarBtn.setTime.btn(aria-label='time')
+                        div
+                            .defaultBtn.add.btn.btn-primary(data-role='POST_REQUEST' tabindex='0') Add
+                            .defaultBtn.cancel.btn.btn-light(data-role='reset' tabindex='0') Cancel
+                #switchMode.fas.fa-tools
+                include notes
+
+        script(src='js/main.js')
+        script(src='js/data.js')
+        script(src='js/dark-mode.js')
