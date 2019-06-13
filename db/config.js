@@ -1,4 +1,4 @@
 module.exports = {
-    uri: 'mongodb+srv://AtlasAdmin:Qwerty-123@cluster0-3qsgw.mongodb.net/test?retryWrites=true',
+    uri: 'mongodb+srv://AtlasAdmin:<password>cluster0-3qsgw.mongodb.net/test?retryWrites=true',
     dbName: 'note-app'
 }
